@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  gui-ubuntu:
+    container_name: gui-ubuntu
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - PYTHON_VERSION=3.9.13
+    volumes:
+      - ./app:/app
+    ports:
+      - 44444:8080
+    shm_size: 1g
+    restart: always
+    tty: true
